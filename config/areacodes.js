@@ -1,3 +1,3 @@
 module.exports = {
-    'file': '../data/area_codes.txt'
+  'file': './data/area_codes.txt'
 }

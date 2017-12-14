@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/BernardoMG/PhoneValidator/issues"
   },
-  "homepage": "https://github.com/BernardoMG/PhoneValidator#readme"
+  "homepage": "https://github.com/BernardoMG/PhoneValidator#readme",
+  "dependencies": {}
 }
