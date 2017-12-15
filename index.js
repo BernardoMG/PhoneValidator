@@ -25,8 +25,7 @@ function loadAreaCodes() {
 // read the input file into a stream
 function readPhoneNumbersFile(file) {
   reader = readline.createInterface({
-    input: fs.createReadStream(file),
-    output: new stream
+    input: fs.createReadStream(file)
   });
   lineProcess()
 }
@@ -34,10 +33,13 @@ function readPhoneNumbersFile(file) {
 // Process each line of the input file
 function lineProcess() {
   reader.on('line', function (line) {
-    validNumber = validator(line, areacodes, validNumbers)
+    validNumbers = validator(line, areacodes, validNumbers)
   })
 
   reader.on('close', function () {
+    for (let key in validNumbers) {
+      console.log(key + ':' + validNumbers[key])
+    }
     process.exit(0)
   });
 }
