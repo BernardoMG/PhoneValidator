@@ -1,7 +1,8 @@
 const fs = require('fs')
 const readline = require('readline')
 const stream = require('stream')
-const areaCodesFile = require('./config/areacodes.js')
+const areaCodesFile = require('./config/areacodes')
+const validator = require('./lib/validator')
 
 let areacodes = []
 let validNumbers = {}
@@ -26,7 +27,6 @@ function readPhoneNumbersFile(file) {
   reader = readline.createInterface({
     input: fs.createReadStream(file),
     output: new stream
-    //terminal: true
   });
   lineProcess()
 }
@@ -34,11 +34,10 @@ function readPhoneNumbersFile(file) {
 // Process each line of the input file
 function lineProcess() {
   reader.on('line', function (line) {
-    console.log(line)
+    validNumber = validator(line, areacodes, validNumbers)
   })
 
   reader.on('close', function () {
-    console.log('No more lines')
     process.exit(0)
   });
 }
