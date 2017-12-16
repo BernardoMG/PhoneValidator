@@ -28,7 +28,7 @@ describe('Validator: valid numbers', function () {
     done()
   })
 
-  it('contains white spaces', function (done) {
+  it('contains empty spaces', function (done) {
     const res = { '1': 4 }
     const numbers = validator('  0  0  1  1   2', areaCodes, validNumber)
     expect(JSON.stringify(numbers)).to.equal(JSON.stringify(res))
@@ -79,7 +79,7 @@ describe('Validator: invalid numbers', function () {
     done()
   })
 
-  it('only white spaces', function (done) {
+  it('only empty spaces', function (done) {
     const res = { '1': 4, '351': 1, '244': 1 }
     const numbers = validator('         ', areaCodes, validNumber)
     expect(JSON.stringify(numbers)).to.equal(JSON.stringify(res))
@@ -88,7 +88,7 @@ describe('Validator: invalid numbers', function () {
 
   it('empty number', function (done) {
     const res = { '1': 4, '351': 1, '244': 1 }
-    const numbers = validator('\n', areaCodes, validNumber)
+    const numbers = validator('', areaCodes, validNumber)
     expect(JSON.stringify(numbers)).to.equal(JSON.stringify(res))
     done()
   })
