@@ -57,4 +57,39 @@ describe('Invalid numbers', function () {
     expect(JSON.stringify(numbers)).to.equal(JSON.stringify(res))
     done()
   })
+
+  it('number contains invalid chars', function (done) {
+    const res = { '1': 4, '351': 1, '244': 1 }
+    const numbers = validator('1/1!234*%$', areaCodes, validNumber)
+    expect(JSON.stringify(numbers)).to.equal(JSON.stringify(res))
+    done()
+  })
+
+  it('number with invalid length', function (done) {
+    const res = { '1': 4, '351': 1, '244': 1 }
+    const numbers = validator('+351234', areaCodes, validNumber)
+    expect(JSON.stringify(numbers)).to.equal(JSON.stringify(res))
+    done()
+  })
+
+  it('number with invalid area code', function (done) {
+    const res = { '1': 4, '351': 1, '244': 1 }
+    const numbers = validator('+991912345', areaCodes, validNumber)
+    expect(JSON.stringify(numbers)).to.equal(JSON.stringify(res))
+    done()
+  })
+
+  it('number has only white spaces', function (done) {
+    const res = { '1': 4, '351': 1, '244': 1 }
+    const numbers = validator('         ', areaCodes, validNumber)
+    expect(JSON.stringify(numbers)).to.equal(JSON.stringify(res))
+    done()
+  })
+
+  it('empty number', function (done) {
+    const res = { '1': 4, '351': 1, '244': 1 }
+    const numbers = validator('\n', areaCodes, validNumber)
+    expect(JSON.stringify(numbers)).to.equal(JSON.stringify(res))
+    done()
+  })
 })
