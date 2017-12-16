@@ -28,7 +28,7 @@ node index.js input.txt
 
 ## Improvement for the future
 
-Let's imagine that in the future this program needs to validate millions of possible phone numbers with the best possible performance. The presented solution processes one line (possible phone number) at a time. Consequently, this will affect its performance.
+Let's imagine that in the future this program needs to validate millions of possible phone numbers with the best possible performance. The presented solution processes one possible phone number at a time. Consequently, this will affect its performance.
 
 To overcome such requirement, we would have to adapt this solution considering the Producer-Consumer paradigm. In this new solution, `Producer(s)` are responsable for generate data, put it into the buffer/queue and start again. While, the `Consumer(s)` is consuming the data (i.e, possible phone numbers), one piece at a time.
 
