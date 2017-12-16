@@ -34,4 +34,4 @@ To overcome such requirement, we would have to adapt this solution considering t
 
 With this new solution, this program could process millions of possible phone numbers with increased performance.
 
-###### Note: ![ Redis Simple Message Queue](https://github.com/smrchy/rsmq) and ![Worker](https://github.com/mpneuried/rsmq-worker))
+###### Note: ![ Redis Simple Message Queue](https://github.com/smrchy/rsmq) and ![Worker](https://github.com/mpneuried/rsmq-worker)
